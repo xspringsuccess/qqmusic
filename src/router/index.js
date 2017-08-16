@@ -1,14 +1,18 @@
 import Vue from 'vue'
-import Hello from '@/components/Hello'
 import Router from 'vue-router'
+import store from '../store'
+//首页
+import Index from '@/components/index'
+//import { Indicator } from 'mint-ui'
 
 Vue.use(Router)
 export default new Router({
+	mode:'history',  //mode设置为"history"时，链接中没有#
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'index',
+      component: Index
     }
   ]
 })
