@@ -1,22 +1,27 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <play-fixed></play-fixed>
+    <!-- <component :is="showlist && 'listview'"></component> -->
   </div>
 </template>
 
 <script>
+	import store from './store';
+  import { mapState } from 'vuex';
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      prevRoutes: []
+    }
+  },
+  components: {
+  	playFixed(resolve) {
+  		require(['@/components/play-fixed.vue'], resolve);//懒加载
+  	}
+  }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+

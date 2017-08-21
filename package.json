@@ -10,8 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "base-64": "^0.1.0",
     "mint-ui": "^2.2.9",
+    "utf8": "^2.1.2",
     "vue": "^2.3.3",
+    "vue-awesome-swiper": "^2.6.2",
     "vue-router": "^2.6.0",
     "vuex": "^2.3.1"
   },
