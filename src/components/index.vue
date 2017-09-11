@@ -1,9 +1,9 @@
 <template>
 	<div class="page">
-		<mt-header fixed title="音乐馆" class="music-header"></mt-header>
-		<form >
-			<mt-search v-model="searchValue" placeholder="搜索" class="music-search">
-				<div class="hotkey-list" v-if="searchState==0">
+		<mt-header fixed title="音乐馆" class="music-header" :style="searchVisible && {top:'-40px'}"></mt-header>
+		<form @submit="searching">
+			<mt-search v-model="searchValue" placeholder="搜索" class="music-search" :visible.sync="searchVisible" :style="searchVisible && { top:'-40px',height:'100%',height:'100vh' }">
+				<div class="hotkey-wrapper" v-if="searchState==0">
 					<p>热门搜索</p>
 					<ul class="hotkey-list">
 						<template v-for="(item,index) in hotkeys">
@@ -227,6 +227,33 @@
 		vertical-align: middle;
 		border-style: none;
 	}
+	.hotkey-wrapper {
+		padding: 15px;	
+		p:first-child {
+			font-size: 14px;
+			color: rgba(0, 0, 0, 0.5);
+			margin-bottom: 10px
+		}
+		.hotkey-list {
+			display: flex;
+			flex-wrap: wrap;
+			> li {
+				font-size: 14px;
+				margin-right: 5px;
+				margin-bottom: 10px;
+				text-align: center;
+				padding: 0 10px;
+			    height: 30px;
+			    line-height: 30px;
+				border-radius: 16px;
+				border: 1px solid #333;
+				&.speical {
+					border-color: #333;
+					color: #333;
+				}
+			}
+		}
+	}
 	.radio-list {
 		display: flex;
 		justify-content: space-between;
@@ -247,6 +274,34 @@
 			}
 		}
 	}
+.music-cell-type5 {
+	.mint-cell-title {
+		flex: 0;
+	}
+	.mint-cell-value {
+		flex: 1;
+		.music-icon {
+		    width: 22px;
+		    height: 20px;
+		    margin-right: 20px;
+			background-image: url(https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/search_sprite.png?max_age=19830212&d=20151105145423);
+		    background-repeat: no-repeat;
+		    background-size: 22px 30px;
+		}
+		.song-wrapper {
+			margin: 10px 0 2px;
+			line-height: 18px;
+			font-size: 16px;
+			p:first-child {
+				color: initial;
+			}
+			p:last-child {
+				margin-bottom: 5px;
+				font-size: 14px;
+			}
+		}
+	}
+}
 	.recommend-wrapper {
 		.title {
 			text-align: center;

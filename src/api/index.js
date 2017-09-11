@@ -41,7 +41,7 @@ export function jsonp(urlObj, callback) {
  * =============================================  */
 let basicParams = {
 	g_tk: 1604785682,
-	uin: 494873674, // qq acount
+	uin: 739903178, // qq acount
 	format: 'jsonp',
 	inCharset: 'utf-8',
 	outCharset: 'utf-8',
